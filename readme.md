@@ -45,6 +45,14 @@ Une interface d’administration permet de gérer les utilisateurs, les contenus
 - Notifications en temps réel
 - Interface d’administration complète
 
+## Technologies utilisées
+  - PHP
+  - MYSQL
+  - HTML 
+  - CSS
+  - JavaScript
+  - Ajax
+
 Identifiants test
 Client : 
 nom d'utilisateur : user
@@ -57,7 +65,7 @@ mot de passe : admin123
 
 
 Membres du groupe 1:
-- Mantinou  BELLO -> A gérer le dossier back office 
-- Denise DAMASSOH -> A gérer le dossier clients
-- DEGAN Maelle    -> A gérer le dossier assets
-- Mohamed SALOU   -> A gérer le dossier api
+- Mantinou  BELLO (Bellox1) -> A gérer le dossier back office
+- Denise DAMASSOH (Denise ou desse20) -> A gérer le dossier clients 
+- DEGAN Maelle    (Maelle13) -> A gérer le dossier assets
+- Mohamed SALOU (Conard12)  -> A gérer le dossier api
