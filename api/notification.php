@@ -22,4 +22,4 @@ $stmt = $conn->prepare("
 $stmt->execute([$user_id]);
 $notifications = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-echo json_encode(["notifications" => $notifications]); 
+echo json_encode(["notifications" => $notifications]);
