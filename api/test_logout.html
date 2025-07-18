@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test Logout API</title>
+</head>
+<body>
+  <button id="logoutBtn">Se déconnecter</button>
+  <pre id="result"></pre>
+  <script>
+    document.getElementById('logoutBtn').onclick = async function() {
+      const res = await fetch('https://linknet.rf.gd/api/logout.php', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'}
+      });
+      document.getElementById('result').textContent = await res.text();
+    };
+  </script>
+</body>
+</html> 

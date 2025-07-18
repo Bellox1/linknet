@@ -1,0 +1,933 @@
+/* Variables CSS */
+:root {
+    --facebook-blue: #1877f2;
+    --facebook-hover: #166fe5;
+    --icon-size: 24px;
+    --nav-height: 56px;
+    --nav-icon-size: 40px;
+    --nav-item-size: 112px;
+    --nav-icon-gap: 10px;
+    --nav-item-gap: 2px;
+    --transition-speed: 0.2s;
+}
+
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    padding-top: var(--nav-height);
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+/* Header style Facebook amélioré */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    height: var(--nav-height);
+    padding: 0 16px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100vw;
+    max-width: 100vw;
+    min-width: 320px;
+}
+
+/* Section gauche (Logo + Recherche) */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: var(--nav-icon-gap);
+    width: 320px;
+    min-width: 180px;
+    max-width: 350px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    margin-right: 8px;
+    padding: 0;
+    transition: transform var(--transition-speed);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.search-container {
+    position: relative;
+    width: 240px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 8px 16px 8px 40px;
+    border-radius: 50px;
+    border: none;
+    background-color: #f0f2f5;
+    font-size: 15px;
+    outline: none;
+    transition: all var(--transition-speed);
+    height: 40px;
+}
+
+.search-container input:focus {
+    background-color: #e4e6e9;
+    box-shadow: 0 0 0 2px #e7f3ff;
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #65676b;
+    font-size: 16px;
+}
+
+/* Section centrale - Navigation améliorée */
+.nav-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 680px;
+    height: 100%;
+    gap: var(--nav-item-gap);
+}
+
+.nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: var(--nav-item-size);
+    position: relative;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color var(--transition-speed);
+    padding: 0 4px;
+}
+
+.nav-item:hover {
+    background-color: #f0f2f5;
+}
+
+.nav-item.active {
+    border-bottom: 3px solid var(--facebook-blue);
+}
+
+.nav-item i {
+    font-size: var(--icon-size);
+    color: #65676b;
+    transition: color var(--transition-speed);
+}
+
+.nav-item.active i {
+    color: var(--facebook-blue);
+}
+
+.nav-item:hover i {
+    color: var(--facebook-blue);
+}
+
+/* Section droite - Icônes améliorées */
+.nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--nav-icon-gap);
+    width: 320px;
+    min-width: 180px;
+    max-width: 350px;
+}
+
+.nav-icon {
+    width: var(--nav-icon-size);
+    height: var(--nav-icon-size);
+    border-radius: 50%;
+    background-color: #e4e6e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transition: all var(--transition-speed);
+}
+
+.nav-icon:hover {
+    background-color: #d8dadf;
+    transform: translateY(-2px);
+}
+
+.nav-icon:hover i {
+    color: var(--facebook-blue);
+}
+
+.nav-icon i {
+    font-size: 18px;
+    color: #050505;
+    transition: color var(--transition-speed);
+}
+
+.notification-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background-color: #e41e3f;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    padding: 4px 4px 4px 8px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+    background: none;
+    margin-left: 4px;
+}
+
+.user-menu:hover {
+    background-color: #f0f2f5;
+}
+
+.user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #dddfe2;
+    transition: transform var(--transition-speed);
+}
+
+.user-menu:hover .user-avatar {
+    transform: scale(1.05);
+}
+
+.user-name {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 12px 0 8px;
+    color: #050505;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 120px;
+}
+
+/* Menu déroulant style Facebook */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    width: 360px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    overflow: hidden;
+    display: none;
+    transform-origin: top right;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.dropdown.active .dropdown-menu {
+    display: block;
+}
+
+.menu-header {
+    padding: 16px;
+    border-bottom: 1px solid #dddfe2;
+}
+
+.menu-header h3 {
+    font-size: 18px;
+    color: #050505;
+    font-weight: 600;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f2f5;
+    transition: background var(--transition-speed);
+}
+
+.menu-item:last-child {
+    border-bottom: none;
+}
+
+.menu-item:hover {
+    background: #f0f2f5;
+}
+
+.menu-item i {
+    font-size: 20px;
+    margin-right: 12px;
+    color: #65676b;
+    width: 24px;
+    text-align: center;
+}
+
+.menu-item .text .title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #050505;
+}
+
+.menu-item .desc {
+    font-size: 12px;
+    color: #65676b;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .nav-left, .nav-right {
+        width: 220px;
+    }
+    .nav-center {
+        width: 500px;
+    }
+    .nav-item {
+        width: 80px;
+    }
+}
+
+@media (max-width: 900px) {
+    .nav-left, .nav-right {
+        width: 180px;
+    }
+    .nav-center {
+        width: 320px;
+    }
+    .nav-item {
+        width: 60px;
+    }
+    .search-container {
+        width: 160px;
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+   // width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 5px 15px;
+    transition: background 0.3s;
+}
+    .user-name {
+        max-width: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 8px;
+    }
+    
+    .nav-left, .nav-center, .nav-right {
+        gap: 6px;
+    }
+    
+    .nav-center {
+        width: 280px;
+    }
+    
+    .nav-item {
+        width: 48px;
+    }
+    
+    .search-container {
+        width: 120px;
+    }
+    
+    .search-container input {
+        padding-left: 32px;
+    }
+    
+    .search-icon {
+        left: 10px;
+    }
+    
+    .user-name {
+        display: none;
+    }
+    
+    .nav-icon {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .user-avatar {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-left {
+        width: auto;
+    }
+    
+    .search-container {
+        display: none;
+    }
+    
+    .nav-center {
+        flex-grow: 1;
+        max-width: none;
+        width: auto;
+    }
+    
+    .nav-right {
+        width: auto;
+    }
+    
+    .nav-item {
+        width: 42px;
+    }
+    
+    .nav-icon:not(:last-child) {
+        display: none;
+    }
+}
+
+.footer {
+    background-color: #222; /* Dark background */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.footer-links {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #6200ea; /* Accent color on hover */
+}
+
+.footer-social a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: #6200ea;
+}
+
+/* Responsive: Center links on smaller screens */
+@media (max-width: 480px) {
+    .footer-links a {
+        margin: 0 8px;
+        font-size: 13px;
+    }
+    
+    .footer-social a {
+        margin: 0 8px;
+        font-size: 16px;
+    }
+}
+
+
+
+/* Facebook-style Homepage Layout */
+/* Variables CSS */
+:root {
+    --facebook-blue: #1877f2;
+    --facebook-hover: #166fe5;
+    --icon-size: 22px;
+    --nav-height: 56px;
+}
+
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    padding-top: var(--nav-height);
+}
+
+/* Container principal */
+.main-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 16px;
+    gap: 20px;
+    min-height: calc(100vh - var(--nav-height));
+}
+
+/* Container du slider (gauche) */
+.slider-container {
+    width: 400px;
+    flex-shrink: 0;
+    position: sticky;
+    top: calc(var(--nav-height) + 20px);
+    height: fit-content;
+}
+
+/* Swiper Styles */
+.swiper {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.swiper-slide {
+    position: relative;
+    background: #000;
+}
+
+.swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 20px;
+}
+
+.slide-caption h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.slide-caption p {
+    font-size: 14px;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+/* Navigation Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.swiper-pagination-bullet {
+    background: white;
+    opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+/* Section Trending Tags */
+.trending-tags {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.trending-tags h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #050505;
+    margin-bottom: 16px;
+}
+
+.trending-tags ul {
+    list-style: none;
+}
+
+.trending-tags li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f2f5;
+}
+
+.trending-tags li:last-child {
+    border-bottom: none;
+}
+
+.trending-tags a {
+    color: var(--facebook-blue);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.trending-tags a:hover {
+    color: var(--facebook-hover);
+    text-decoration: underline;
+}
+
+/* Feed utilisateur (droite) */
+.user-feed {
+    flex: 1;
+    max-width: 680px;
+}
+
+.user-feed h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #050505;
+    margin-bottom: 20px;
+    padding: 0 4px;
+}
+
+/* Carte de post */
+.post {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    gap: 12px;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #dddfe2;
+}
+
+.post-header strong {
+    font-weight: 600;
+    color: #050505;
+    font-size: 15px;
+    flex: 1;
+}
+
+.post-header small {
+    color: #65676b;
+    font-size: 13px;
+}
+
+.post p {
+    padding: 0 16px 16px;
+    font-size: 15px;
+    line-height: 1.4;
+    color: #050505;
+}
+
+/* Media des posts */
+.post-media {
+    margin: 0 0 16px 0;
+}
+
+.post-media img,
+.post-media video {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+/* Actions des posts */
+.post-actions {
+    display: flex;
+    padding: 12px 16px;
+    border-top: 1px solid #dddfe2;
+    gap: 16px;
+}
+
+.post-actions a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #65676b;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.post-actions a:hover {
+    background-color: #f0f2f5;
+}
+
+.post-actions i {
+    font-size: 18px;
+}
+
+/* Bouton flottant */
+.floating-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    background-color: var(--facebook-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(24, 119, 242, 0.4);
+    transition: all 0.2s;
+    z-index: 1000;
+}
+
+.floating-btn:hover {
+    background-color: var(--facebook-hover);
+    transform: scale(1.1);
+}
+
+.floating-btn i {
+    font-size: 24px;
+}
+
+/* Modal de commentaire */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    border-radius: 12px;
+    padding: 24px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.close {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #65676b;
+    transition: color 0.2s;
+}
+
+.close:hover {
+    color: #050505;
+}
+
+.modal-content h2 {
+    margin-bottom: 16px;
+    color: #050505;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#comment_text {
+    width: 100%;
+    min-height: 100px;
+    padding: 12px;
+    border: 1px solid #dddfe2;
+    border-radius: 8px;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 15px;
+    margin-bottom: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#comment_text:focus {
+    border-color: var(--facebook-blue);
+}
+
+.modal-content button {
+    background-color: var(--facebook-blue);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.2s;
+}
+
+.modal-content button:hover {
+    background-color: var(--facebook-hover);
+}
+
+/* Design responsive */
+@media (max-width: 1200px) {
+    .main-container {
+        max-width: 1000px;
+    }
+    .slider-container {
+        width: 350px;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-container {
+        flex-direction: column;
+        padding: 16px;
+    }
+    .slider-container {
+        width: 100%;
+        position: static;
+    }
+    .user-feed {
+        max-width: 100%;
+    }
+    .swiper {
+        height: 250px;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-container {
+        padding: 12px;
+    }
+    .swiper {
+        height: 200px;
+    }
+    .slide-caption {
+        padding: 16px;
+    }
+    .slide-caption h3 {
+        font-size: 16px;
+    }
+    .slide-caption p {
+        font-size: 13px;
+    }
+    .post-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    .floating-btn {
+        bottom: 16px;
+        right: 16px;
+        width: 48px;
+        height: 48px;
+    }
+    .floating-btn i {
+        font-size: 20px;
+    }
+} 
+/* Ajoute ceci dans ton CSS */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+}
+
+footer {
+    margin-top: auto;
+    /* Optionnel : largeur et centrage */
+    width: 100%;
+}

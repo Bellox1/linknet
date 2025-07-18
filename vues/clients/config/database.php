@@ -1,15 +1,9 @@
 <?php
 // config/db.php
-
 $host     = 'sql203.infinityfree.com';
 $dbname   = 'if0_39310327_linknet';
 $username = 'if0_39310327';
 $password = 'z3fMhkcseZyc';
-/*
-$host     = 'localhost';
-$dbname   = 'social_media_db';
-$username = 'root';
-$password = '';
 
 $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
 $options = [
@@ -19,20 +13,9 @@ $options = [
 ];
 
 try {
-    // @var PDO $conn 
+    /** @var PDO $conn */
     $conn = new PDO($dsn, $username, $password, $options);
 } catch (PDOException $e) {
     die('Connexion BD impossible : ' . $e->getMessage());
 }
-*/
-
-
-try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
-}
-
-
 ?>

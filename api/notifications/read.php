@@ -1,36 +1,25 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
+// session_start(); // Décommente si la session n’est pas déjà démarrée ailleurs
+require_once __DIR__ . '/../back-office/config/database.php';
 
-include_once '../config/database.php';
-include_once '../models/Notification.php';
+header('Content-Type: application/json');
 
-$database = new Database();
-$db = $database->getConnection();
-
-$notification = new Notification($db);
-$stmt = $notification->read();
-$num = $stmt->rowCount();
-
-if($num > 0) {
-    $arr = [
-        "success" => true,
-        "message" => "Notifications récupérées avec succès",
-        "count" => $num,
-        "data" => []
-    ];
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $arr["data"][] = $row;
-    }
-    http_response_code(200);
-    echo json_encode($arr, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-} else {
-    http_response_code(404);
-    echo json_encode([
-        "success" => false,
-        "message" => "Aucune notification trouvée.",
-        "count" => 0,
-        "data" => []
-    ], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+if (!isset($_SESSION["user"])) {
+    http_response_code(401);
+    echo json_encode(["error" => "Non authentifié"]);
+    exit;
 }
-?> 
+
+$user_id = $_SESSION["user"];
+
+$stmt = $conn->prepare("
+    SELECT notifications.id, notifications.type, notifications.post_id, notifications.is_read, users.username 
+    FROM notifications 
+    JOIN users ON notifications.sender_id = users.id 
+    WHERE notifications.user_id = ?
+    ORDER BY notifications.created_at DESC
+");
+$stmt->execute([$user_id]);
+$notifications = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+echo json_encode(["notifications" => $notifications]); 
