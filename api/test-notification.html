@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Notifications API</title>
+</head>
+<body>
+    <h1>Test notifications/read.php</h1>
+    <button id="fetchBtn">Récupérer mes notifications</button>
+    <pre id="result"></pre>
+
+    <script>
+    document.getElementById('fetchBtn').onclick = function() {
+        fetch('notifications/read.php', {
+            credentials: 'include' // Pour envoyer les cookies de session
+        })
+        .then(r => r.json())
+        .then(data => {
+            document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(e => {
+            document.getElementById('result').textContent = 'Erreur : ' + e;
+        });
+    };
+    </script>
+</body>
+</html>
