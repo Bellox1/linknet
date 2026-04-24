@@ -6,3 +6,6 @@ vues/back-office/uploads/*
 # Ignore tout fichier dans Posts sauf .gitkeep
 vues/back-office/uploads/Posts/*
 !vues/back-office/uploads/Posts/.gitkeep
+
+# Ignore les fichiers de configuration
+vues/back-office/config/.env

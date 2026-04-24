@@ -1,71 +1,74 @@
-# Linknet
+# 🌐 Linknet - Réseau Social Collaboratif
 
-## Description du projet
+<p align="center">
+  <img src="assets/images/linknet_logo.webp" width="150" alt="Linknet Logo">
+</p>
 
-Linknet est un réseau social complet permettant aux utilisateurs de :
-- Créer un compte, se connecter, gérer leur profil
-- Publier des posts, commenter, aimer, partager
-- Envoyer et accepter des demandes d’amis
-- Discuter en temps réel avec d’autres membres
-- Recevoir des notifications (demandes d’amis)
+**Linknet** est un réseau social complet et interactif conçu pour favoriser la connexion et l'échange. Développé en équipe, ce projet intègre toutes les fonctionnalités modernes d'une plateforme sociale : gestion de profil, publications dynamiques, messagerie instantanée et un tableau de bord d'administration robuste.
 
-Une interface d’administration permet de gérer les utilisateurs, les contenus, les signalements et la modération.
+---
 
-## Mode de fonctionnement
+## ✨ Fonctionnalités Principales
 
-- **Frontend client** (`vues/clients/`) : Interface utilisateur pour toutes les fonctionnalités sociales.
-- **Backend/API** (`api/`) : Fournit les endpoints pour la gestion des utilisateurs, des posts, des messages etc.
-- **Back-office admin** (`vues/back-office/admin/`) : Interface de gestion et de modération pour les administrateurs.
-- **Base de données** : Schéma SQL dans `vues/back-office/config/db.sql` et `vues/clients/config/db.sql`.
+### 👥 Expérience Sociale (Client)
+*   **Interaction Totale** : Publiez des posts, commentez, likez et partagez du contenu en temps réel.
+*   **Réseautage** : Système complet de gestion d'amis (envoi, réception et acceptation de demandes).
+*   **Messagerie Instantanée** : Discutez en direct avec vos amis via une interface fluide.
+*   **Notifications** : Restez informé des nouvelles demandes et interactions.
 
+### 🛡️ Administration & Modération
+*   **Back-Office Complet** : Une interface dédiée aux administrateurs pour piloter la plateforme.
+*   **Gestion du Contenu** : Modération des utilisateurs, des publications et gestion des signalements.
 
+---
 
-> Tu peux aussi t’inscrire via le formulaire d’inscription (``vues/clients/auth/register.php`).
+## 🛠️ Stack Technique
 
-### Administrateur
-- Un compte administrateur doit être créé via la base de données ou le back-office.
-- Table concernée : `admins` (voir `db.sql`).
+*   **Backend** : PHP 8+ (Natif / API)
+*   **Base de données** : MySQL (Hébergé sur InfinityFree / Local via XAMPP)
+*   **Frontend** : HTML5, CSS3, JavaScript (Vanilla + AJAX)
 
+---
 
-## Installation
+## 🚀 Guide de Démarrage Rapide
 
-1. Cloner le dépôt et placer le dossier dans votre serveur local (ex : XAMPP).
-2. Importer le fichier `db.sql` dans votre base de données MySQL.
-3. Configurer les accès à la base de données dans `vues/back-office/config/database.php` et `vues/clients/config/database.php`.
-4. Accéder à l’interface client via `vues/clients/index.php` et à l’interface admin via `vues/back-office/admin/auth/login.php`.
+Suivez ces étapes pour lancer Linknet sur votre machine locale :
 
-## Fonctionnalités principales
+### 1. Configuration de la Base de Données
+Le projet utilise deux fichiers de connexion qu'il est impératif de configurer avec vos identifiants :
+*   **Client** : `vues/clients/config/database.php`
+*   **Admin** : `vues/back-office/config/database.php`
 
-- Inscription / Connexion / Déconnexion
-- Gestion du profil utilisateur
-- Publication, édition 
-- Commentaires et likes
-- Système d’amis et de demandes d’amis
-- Messagerie instantanée
-- Notifications en temps réel
-- Interface d’administration complète
+> [!TIP]
+> Importez le schéma SQL `db.sql` (présent dans les dossiers config) dans votre base de données avant de tenter la connexion.
 
-## Technologies utilisées
-  - PHP
-  - MYSQL
-  - HTML 
-  - CSS
-  - JavaScript
-  - Ajax
+### 2. Lancement du Serveur Web
+Vous pouvez utiliser **XAMPP/WAMP** (en plaçant le dossier dans `htdocs`) ou lancer le serveur intégré de PHP à la racine du projet :
+```bash
+php -S localhost:8000
+```
 
-Identifiants test
-Client : 
-nom d'utilisateur : user
-mot de passe : user123
+### 3. Accès à l'Application
+*   **Interface Utilisateur** : Ouvrez [http://localhost:8000](http://localhost:8000). Vous serez automatiquement redirigé vers la page de connexion si vous n'êtes pas authentifié.
+*   **Interface Administration** : Accédez au tableau de bord via [http://localhost:8000/vues/back-office/admin/auth/login.php](http://localhost:8000/vues/back-office/admin/auth/login.php).
 
-Admin  : 
-nom d'utilisateur : admin
-mot de passe : admin123
+---
 
+## ⚙️ Gestion du Projet (Git)
+Un fichier `.gitignore` a été mis en place pour optimiser le dépôt :
+*   **Ignoré** : Les fichiers médias dans `uploads/` (évite d'alourdir le repo) et les fichiers de configuration sensibles.
+*   **Conservé** : Les dossiers de structure comme `Posts/` sont maintenus via des fichiers `.gitkeep`.
 
+---
 
-Membres du groupe 1:
-- Mantinou  BELLO (Bellox1) -> A gérer le dossier back office
-- Denise DAMASSOH (Denise ou desse20) -> A gérer le dossier clients 
-- DEGAN Maelle    (Maelle13) -> A gérer le dossier assets
-- Mohamed SALOU (Conard12)  -> A gérer le dossier api
+## 👥 L'Équipe du Projet (Groupe 1)
+
+*   **Matinou BELLO** (Bellox1) : Responsable Back-Office.
+*   **Denise DAMASSOH** (desse20) : Responsable Clients.
+*   **DEGAN Maelle** (Maelle13) : Responsable Assets.
+*   **Mohamed SALOU** (Conard12) : Responsable API.
+
+---
+
+## 📄 Licence
+Ce projet est sous licence MIT.
